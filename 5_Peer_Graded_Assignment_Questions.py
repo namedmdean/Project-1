@@ -26,9 +26,7 @@ airline_data =  pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.
 year_list = [i for i in range(2005, 2021, 1)]
 
 """Compute graph data for creating yearly airline performance report 
-
 Function that takes airline data as input and create 5 dataframes based on the grouping condition to be used for plottling charts and grphs.
-
 Argument:
      
     df: Filtered dataframe
@@ -51,9 +49,7 @@ def compute_data_choice_1(df):
 
 
 """Compute graph data for creating yearly airline delay report
-
 This function takes in airline data and selected year as an input and performs computation for creating charts and plots.
-
 Arguments:
     df: Input airline data.
     
@@ -95,11 +91,7 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
                                                     placeholder='Select a Report Type',
                                                     style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}, 
                                                     style={'display':'flex'}),
-                                    # Place them next to each other using the division style
-
-                                    
-                                   # Add next division 
-                                   html.Div([
+                                                    html.Div([
                                        # Create an division for adding dropdown helper text for choosing year
                                         html.Div(
                                             [
@@ -129,19 +121,18 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
                                 html.Div([
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5'),
-                                ], style={'display': 'flex'}),                              
-                                
- ])
+                                ], style={'display': 'flex'}),                 
+])
 
 # Callback function definition
 # TASK4: Add 5 ouput components
 # Enter your code below. Make sure you have correct formatting.
 @app.callback( [
                 Output(component_id='plot1', component_property='children'),
-                Output(component_id='plot2', component_property='childeren'),
-                Output(component_id='plot3', component_property='childeren'),
-                Output(component_id='plot4', component_property='childeren'),
-                Output(component_id='plot5', component_property='childeren')],
+                Output(component_id='plot2', component_property='children'),
+                Output(component_id='plot3', component_property='children'),
+                Output(component_id='plot4', component_property='children'),
+                Output(component_id='plot5', component_property='children')],
                [
                 Input(component_id='input-type', component_property='value'),
                 Input(component_id='input-year', component_property='value')],
@@ -154,7 +145,7 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
 def get_graph(chart, year, children1, children2, c3, c4, c5):
       
         # Select data
-        df =  airline_data[airline_data['Year']==year]
+        df = airline_data[airline_data['Year']==int(year)]  
        
         if chart == 'OPT1':
             # Compute required information for creating graph from the data
@@ -178,7 +169,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                     locationmode = 'USA-states', # Set to plot as US States
                     color_continuous_scale='GnBu',
                     range_color=[0, map_data['Flights'].max()]) 
-            map_fig.update_layout(
+                    map_fig.update_layout(
                     title_text = 'Number of flights from origin state', 
                     geo_scope='usa') # Plot only the USA instead of globe
             
