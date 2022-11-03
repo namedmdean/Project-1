@@ -87,7 +87,7 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
                                         # Enter your code below. Make sure you have correct formatting.
                                         dcc.Dropdown(id='input-type', 
                                                     options=[{'label': 'Yearly Airline Performance Report', 'value':'OPT 1'},
-                                                    {'label': 'Yearly Airline Delar Report', 'value': 'OPT 2'}],
+                                                    {'label': 'Yearly Airline Delay Report', 'value': 'OPT 2'}],
                                                     placeholder='Select a Report Type',
                                                     style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}, 
                                                     style={'display':'flex'}),
@@ -143,7 +143,6 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
                ])
 # Add computation to callback function and return graph
 def get_graph(chart, year, children1, children2, c3, c4, c5):
-      
         # Select data
         df = airline_data[airline_data['Year']==int(year)]  
        
@@ -212,3 +211,4 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
 # Run the app
 if __name__ == '__main__':
     app.run_server()
+
