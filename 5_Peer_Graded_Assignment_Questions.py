@@ -67,8 +67,7 @@ def compute_data_choice_2(df):
 
 
 # Application layout
-app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performance", style={'textAlign': 'center', 'color': '#503D36',
-                                'font-size': 24}),
+app.layout = html.Div(children=[html.H1("US Domestic Airline Flights Performance", style={'textAlign': 'center', 'color': '#503D36','font-size': 24}),
                                 # TASK1: Add title to the dashboard
                                 # Enter your code below. Make sure you have correct formatting.
     
@@ -89,8 +88,9 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
                                                     options=[{'label': 'Yearly Airline Performance Report', 'value':'OPT 1'},
                                                     {'label': 'Yearly Airline Delay Report', 'value': 'OPT 2'}],
                                                     placeholder='Select a Report Type',
-                                                    style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}, 
-                                                    style={'display':'flex'}),
+                                                    style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}), 
+                                              
+                                            ], style={'display':'flex'}),
                                                     html.Div([
                                        # Create an division for adding dropdown helper text for choosing year
                                         html.Div(
@@ -122,7 +122,7 @@ app.layout = html.Div(children=[ html.H1("US Domestic Airline Flights Performanc
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5'),
                                 ], style={'display': 'flex'}),                 
-])
+                                ])
 
 # Callback function definition
 # TASK4: Add 5 ouput components
